@@ -39,7 +39,7 @@ export default function ContactCTA() {
 
           <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
             <Link
-              href={`mailto:${personal.email}`}
+              href="/contact"
               className="inline-flex items-center gap-2 shimmer-btn text-white px-7 py-3.5 rounded-xl
                 text-[14px] font-semibold shadow-glow-sm hover:shadow-glow-md transition-all duration-300"
             >

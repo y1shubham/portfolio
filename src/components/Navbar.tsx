@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -75,24 +76,40 @@ export default function Navbar() {
       </div>
 
       {/* Mobile drawer */}
-      {open && (
-        <div className="md:hidden bg-bg-primary/95 backdrop-blur-xl border-t border-white/5 px-6 py-4 flex flex-col gap-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "px-4 py-3 rounded-xl text-sm font-medium transition-all",
-                pathname === link.href
-                  ? "text-accent bg-accent/10 border border-accent/20"
-                  : "text-text-muted hover:text-text-primary hover:bg-white/5"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.22, ease: "easeInOut" }}
+            className="md:hidden overflow-hidden bg-bg-primary/95 backdrop-blur-xl border-t border-white/5"
+          >
+            <div className="px-6 py-4 flex flex-col gap-1">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05, duration: 0.18 }}
+                >
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      "block px-4 py-3 rounded-xl text-sm font-medium transition-all",
+                      pathname === link.href
+                        ? "text-accent bg-accent/10 border border-accent/20"
+                        : "text-text-muted hover:text-text-primary hover:bg-white/5"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

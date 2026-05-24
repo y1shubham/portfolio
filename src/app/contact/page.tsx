@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle, Copy, Check } from "lucide-react";
 import GithubIcon from "@/components/GithubIcon";
 import LinkedinIcon from "@/components/LinkedinIcon";
 import Link from "next/link";
@@ -14,6 +14,13 @@ export default function ContactPage() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [copied, setCopied] = useState(false);
+
+  function copyEmail() {
+    navigator.clipboard.writeText(personal.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -88,20 +95,34 @@ export default function ContactPage() {
                     style={{ background: item.color + "18", border: `1px solid ${item.color}30` }}>
                     {item.icon}
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <p className="text-[11px] text-text-muted font-semibold tracking-wider uppercase mb-0.5">{item.label}</p>
-                    {item.href ? (
-                      <Link
-                        href={item.href}
-                        target={item.href.startsWith("http") ? "_blank" : undefined}
-                        rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                        className="text-sm font-medium text-text-primary hover:text-accent transition-colors"
-                      >
-                        {item.value}
-                      </Link>
-                    ) : (
-                      <span className="text-sm font-medium text-text-primary">{item.value}</span>
-                    )}
+                    <div className="flex items-center gap-2">
+                      {item.href ? (
+                        <Link
+                          href={item.href}
+                          target={item.href.startsWith("http") ? "_blank" : undefined}
+                          rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className="text-sm font-medium text-text-primary hover:text-accent transition-colors truncate"
+                        >
+                          {item.value}
+                        </Link>
+                      ) : (
+                        <span className="text-sm font-medium text-text-primary truncate">{item.value}</span>
+                      )}
+                      {item.label === "Email" && (
+                        <button
+                          onClick={copyEmail}
+                          aria-label="Copy email"
+                          className="flex-shrink-0 text-text-muted hover:text-accent transition-colors"
+                        >
+                          {copied
+                            ? <Check size={13} className="text-green-400" />
+                            : <Copy size={13} />
+                          }
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
               ))}

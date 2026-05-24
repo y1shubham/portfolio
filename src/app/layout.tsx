@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import CustomCursor from "@/components/CustomCursor";
 import PageTransition from "@/components/PageTransition";
+import BackToTop from "@/components/BackToTop";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -33,6 +35,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main><PageTransition>{children}</PageTransition></main>
         <Footer />
+        <BackToTop />
+        <Analytics />
       </body>
     </html>
   );
