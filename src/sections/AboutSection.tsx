@@ -85,7 +85,7 @@ export default function AboutSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.1 * i }}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="gradient-border rounded-2xl p-6 transition-all duration-300 hover:shadow-glow-sm group"
+              className="bg-bg-primary rounded-2xl p-6 border border-white/8 hover:border-accent/30 transition-all duration-300 hover:shadow-glow-sm group"
             >
               <div className={`text-2xl font-extrabold mb-2 bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent`}>
                 {stat.numeric

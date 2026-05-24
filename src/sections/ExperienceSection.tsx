@@ -53,7 +53,7 @@ export default function ExperienceSection() {
                 {/* Card */}
                 <motion.div
                   whileHover={{ y: -3, transition: { duration: 0.2 } }}
-                  className="flex-1 gradient-border rounded-2xl p-6 md:p-8 transition-all duration-300 hover:shadow-glow-sm"
+                  className="flex-1 bg-bg-primary border border-white/8 hover:border-accent/30 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:shadow-glow-sm"
                 >
                   {/* Company + badge */}
                   <div className="flex flex-wrap items-center gap-3 mb-1">

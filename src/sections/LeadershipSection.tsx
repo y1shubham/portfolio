@@ -29,7 +29,7 @@ export default function LeadershipSection() {
             <motion.div
               key={i}
               whileHover={{ y: -3, transition: { duration: 0.2 } }}
-              className="gradient-border rounded-2xl p-6 transition-all duration-300 hover:shadow-glow-sm flex-1"
+              className="bg-bg-primary border border-white/8 hover:border-accent/30 rounded-2xl p-6 transition-all duration-300 hover:shadow-glow-sm flex-1"
             >
               <div className="flex items-start gap-4 mb-5">
                 <div className="w-11 h-11 bg-accent/10 border border-accent/20 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -69,7 +69,7 @@ export default function LeadershipSection() {
 
           <motion.div
             whileHover={{ y: -3, transition: { duration: 0.2 } }}
-            className="gradient-border rounded-2xl p-6 transition-all duration-300 hover:shadow-glow-sm flex-1"
+            className="bg-bg-primary border border-white/8 hover:border-accent-cyan/30 rounded-2xl p-6 transition-all duration-300 hover:shadow-glow-sm flex-1"
           >
             <div className="flex items-start gap-4 mb-5">
               <div className="w-11 h-11 bg-accent-cyan/10 border border-accent-cyan/20 rounded-xl flex items-center justify-center flex-shrink-0">
