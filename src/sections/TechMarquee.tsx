@@ -7,10 +7,7 @@ function MarqueeRow({ items, reverse = false }: { items: string[]; reverse?: boo
   const doubled = [...items, ...items];
   return (
     <div className="overflow-hidden">
-      <div
-        className="flex gap-4 w-max"
-        style={{ animation: `${reverse ? "marquee-reverse" : "marquee"} 30s linear infinite` }}
-      >
+      <div className={`flex gap-4 w-max ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`}>
         {doubled.map((tech, i) => (
           <span
             key={i}

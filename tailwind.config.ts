@@ -34,15 +34,17 @@ const config: Config = {
           "radial-gradient(ellipse at center, var(--tw-gradient-stops))",
       },
       animation: {
-        float:        "float 3s ease-in-out infinite",
-        "float-d1":   "float 3s ease-in-out 0.6s infinite",
-        "float-d2":   "float 3s ease-in-out 1.2s infinite",
-        "float-d3":   "float 3s ease-in-out 1.8s infinite",
-        "float-d4":   "float 3s ease-in-out 2.4s infinite",
-        "float-d5":   "float 3s ease-in-out 0.9s infinite",
-        "spin-slow":  "spin-slow 6s linear infinite",
-        shimmer:      "shimmer 3s linear infinite",
-        pulse:        "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite",
+        float:            "float 3s ease-in-out infinite",
+        "float-d1":       "float 3s ease-in-out 0.6s infinite",
+        "float-d2":       "float 3s ease-in-out 1.2s infinite",
+        "float-d3":       "float 3s ease-in-out 1.8s infinite",
+        "float-d4":       "float 3s ease-in-out 2.4s infinite",
+        "float-d5":       "float 3s ease-in-out 0.9s infinite",
+        "spin-slow":      "spin-slow 6s linear infinite",
+        shimmer:          "shimmer 3s linear infinite",
+        pulse:            "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite",
+        marquee:          "marquee 28s linear infinite",
+        "marquee-reverse":"marquee-reverse 28s linear infinite",
       },
       keyframes: {
         float: {
@@ -56,6 +58,14 @@ const config: Config = {
         shimmer: {
           "0%":   { backgroundPosition: "-200% center" },
           "100%": { backgroundPosition:  "200% center" },
+        },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to:   { transform: "translateX(-50%)" },
+        },
+        "marquee-reverse": {
+          from: { transform: "translateX(-50%)" },
+          to:   { transform: "translateX(0)" },
         },
       },
     },
