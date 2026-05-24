@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import CustomCursor from "@/components/CustomCursor";
+import PageTransition from "@/components/PageTransition";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -30,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CustomCursor />
         <ScrollProgress />
         <Navbar />
-        <main>{children}</main>
+        <main><PageTransition>{children}</PageTransition></main>
         <Footer />
       </body>
     </html>

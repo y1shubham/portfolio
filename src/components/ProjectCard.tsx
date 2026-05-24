@@ -21,10 +21,10 @@ export default function ProjectCard({ project, index }: { project: Project; inde
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 28, scale: 0.96 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.45, delay: index * 0.13 }}
       whileHover={{ y: -6, transition: { duration: 0.2 } }}
       className="group relative flex flex-col rounded-2xl overflow-hidden
         bg-bg-secondary border border-white/6

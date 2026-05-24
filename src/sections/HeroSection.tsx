@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Mail, ArrowRight, Download, MapPin } from "lucide-react";
+import { Mail, ArrowRight, Download, MapPin, ChevronDown } from "lucide-react";
+import TextScramble from "@/components/TextScramble";
 import GithubIcon from "@/components/GithubIcon";
 import LinkedinIcon from "@/components/LinkedinIcon";
 import { personal } from "@/data";
@@ -88,9 +89,9 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-5xl md:text-[72px] font-extrabold leading-[0.95] tracking-tighter mb-5"
           >
-            <span className="gradient-text">{personal.name.split(" ")[0]}</span>
+            <TextScramble text={personal.name.split(" ")[0]} className="gradient-text" delay={300} />
             <br />
-            <span className="text-text-primary">{personal.name.split(" ")[1]}</span>
+            <TextScramble text={personal.name.split(" ")[1]} className="text-text-primary" delay={700} />
           </motion.h1>
 
           {/* Typewriter */}
@@ -197,12 +198,12 @@ export default function HeroSection() {
           <div className="relative w-72 h-80 md:w-80 md:h-96 gradient-border rounded-3xl flex flex-col items-center justify-center shadow-glow-md">
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-accent/5 to-transparent pointer-events-none" />
 
-            <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-accent/30 shadow-glow-sm relative z-10">
+            <div className="w-44 h-44 rounded-full overflow-hidden border-2 border-accent/30 shadow-glow-sm relative z-10">
               <Image
                 src="/images/shubham.jpg"
                 alt="Shubham Yadav"
-                width={144}
-                height={144}
+                width={176}
+                height={176}
                 className="object-cover w-full h-full"
                 priority
               />
@@ -237,6 +238,22 @@ export default function HeroSection() {
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg-secondary to-transparent pointer-events-none" />
+
+      {/* Scroll hint */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.6, duration: 0.8 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-10"
+      >
+        <span className="text-[10px] text-text-muted/60 tracking-[0.2em] uppercase font-medium">scroll</span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+        >
+          <ChevronDown size={14} className="text-text-muted/50" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

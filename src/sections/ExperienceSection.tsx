@@ -33,10 +33,10 @@ export default function ExperienceSection() {
             {experience.map((exp, i) => (
               <motion.div
                 key={exp.company}
-                initial={{ opacity: 0, x: -24 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: -24, scale: 0.97 }}
+                whileInView={{ opacity: 1, x: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.12 }}
+                transition={{ duration: 0.5, delay: i * 0.14 }}
                 className="flex gap-8"
               >
                 {/* Timeline dot */}

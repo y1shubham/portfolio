@@ -5,10 +5,10 @@ import { motion, useInView } from "framer-motion";
 import SectionLabel from "@/components/SectionLabel";
 
 const stats = [
-  { value: 1,            suffix: "+", label: "Years Experience",  gradient: "from-blue-500 to-cyan-400",     numeric: true  },
-  { value: 3,            suffix: "",  label: "Major Projects",    gradient: "from-violet-500 to-purple-400", numeric: true  },
-  { value: "Full Stack", suffix: "",  label: "Development Focus", gradient: "from-emerald-500 to-teal-400",  numeric: false },
-  { value: "Real-Time",  suffix: "",  label: "Systems Specialty", gradient: "from-orange-500 to-amber-400",  numeric: false },
+  { value: 1,  suffix: "+", label: "Years Experience", gradient: "from-blue-500 to-cyan-400",     numeric: true },
+  { value: 3,  suffix: "",  label: "Projects Built",   gradient: "from-violet-500 to-purple-400", numeric: true },
+  { value: 20, suffix: "+", label: "Technologies",     gradient: "from-emerald-500 to-teal-400",  numeric: true },
+  { value: 2,  suffix: "",  label: "Companies",        gradient: "from-orange-500 to-amber-400",  numeric: true },
 ];
 
 function CountUp({ to, suffix }: { to: number; suffix: string }) {
@@ -88,10 +88,7 @@ export default function AboutSection() {
               className="bg-bg-primary rounded-2xl p-6 border border-white/8 hover:border-accent/30 transition-all duration-300 hover:shadow-glow-sm group"
             >
               <div className={`text-2xl font-extrabold mb-2 bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent`}>
-                {stat.numeric
-                  ? <CountUp to={stat.value as number} suffix={stat.suffix} />
-                  : <>{stat.value}{stat.suffix}</>
-                }
+                <CountUp to={stat.value as number} suffix={stat.suffix} />
               </div>
               <p className="text-[13px] text-text-muted group-hover:text-text-primary transition-colors">{stat.label}</p>
             </motion.div>
