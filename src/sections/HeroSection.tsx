@@ -3,10 +3,13 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { Mail, ArrowRight, Download, MapPin } from "lucide-react";
 import GithubIcon from "@/components/GithubIcon";
 import LinkedinIcon from "@/components/LinkedinIcon";
 import { personal } from "@/data";
+
+const phrases = ["Full Stack Developer", "Real-Time Systems Engineer", "Building @ LiveLike"];
 
 const techBadges = [
   { label: "React.js",   color: "#61DAFB", pos: "-left-20 top-10" },
@@ -17,7 +20,42 @@ const techBadges = [
   { label: "Socket.io",  color: "#A78BFA", pos: "-right-20 bottom-14" },
 ];
 
-const floatAnims = ["float", "float-d1", "float-d2", "float-d3", "float-d4", "float-d5"];
+function Typewriter() {
+  const [text, setText]       = useState("");
+  const [wordIdx, setWordIdx] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+  const [blink, setBlink]     = useState(true);
+
+  useEffect(() => {
+    const word = phrases[wordIdx];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!deleting && text === word) {
+      timeout = setTimeout(() => setDeleting(true), 2200);
+    } else if (deleting && text === "") {
+      setDeleting(false);
+      setWordIdx((i) => (i + 1) % phrases.length);
+    } else {
+      timeout = setTimeout(
+        () => setText(deleting ? word.slice(0, text.length - 1) : word.slice(0, text.length + 1)),
+        deleting ? 38 : 72
+      );
+    }
+    return () => clearTimeout(timeout);
+  }, [text, deleting, wordIdx]);
+
+  useEffect(() => {
+    const t = setInterval(() => setBlink((b) => !b), 530);
+    return () => clearInterval(t);
+  }, []);
+
+  return (
+    <span className="gradient-text-accent font-semibold">
+      {text}
+      <span className={`ml-0.5 inline-block w-[2px] h-[1em] bg-accent align-middle transition-opacity duration-100 ${blink ? "opacity-100" : "opacity-0"}`} />
+    </span>
+  );
+}
 
 export default function HeroSection() {
   return (
@@ -28,7 +66,6 @@ export default function HeroSection() {
       {/* Background glows */}
       <div className="absolute top-0 right-0 w-[700px] h-[600px] bg-accent/8 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 left-[-100px] w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent/3 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 w-full grid md:grid-cols-2 gap-12 items-center py-20 relative z-10">
         {/* ── LEFT ── */}
@@ -56,24 +93,21 @@ export default function HeroSection() {
             <span className="text-text-primary">{personal.name.split(" ")[1]}</span>
           </motion.h1>
 
-          {/* Role */}
+          {/* Typewriter */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.22 }}
-            className="flex items-center gap-2 mb-2"
+            className="text-base md:text-lg font-medium text-text-muted mb-2 h-7"
           >
-            <span className="text-base font-medium text-text-muted">
-              {personal.role} @{" "}
-              <span className="gradient-text-accent font-semibold">{personal.company}</span>
-            </span>
+            <Typewriter />
           </motion.div>
 
           {/* Location */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.32 }}
             className="flex items-center gap-1.5 text-text-muted text-sm mb-7"
           >
             <MapPin size={13} className="text-accent" />
@@ -84,8 +118,8 @@ export default function HeroSection() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.32 }}
-            className="text-[15px] text-text-muted leading-relaxed max-w-lg mb-9 border-l-2 border-accent/30 pl-4"
+            transition={{ duration: 0.6, delay: 0.38 }}
+            className="text-[14px] text-text-muted leading-relaxed max-w-lg mb-9 border-l-2 border-accent/30 pl-4"
           >
             {personal.summary}
           </motion.p>
@@ -94,7 +128,7 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.42 }}
+            transition={{ duration: 0.6, delay: 0.46 }}
             className="flex flex-wrap gap-3 mb-10"
           >
             <Link
@@ -118,13 +152,13 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.55 }}
-            className="flex items-center gap-4"
+            transition={{ duration: 0.5, delay: 0.56 }}
+            className="flex items-center gap-3"
           >
             {[
-              { href: personal.github,            icon: <GithubIcon size={18} />,   label: "GitHub" },
-              { href: personal.linkedin,           icon: <LinkedinIcon size={18} />, label: "LinkedIn" },
-              { href: `mailto:${personal.email}`,  icon: <Mail size={18} />,         label: "Email" },
+              { href: personal.github,            icon: <GithubIcon size={17} />,   label: "GitHub" },
+              { href: personal.linkedin,           icon: <LinkedinIcon size={17} />, label: "LinkedIn" },
+              { href: `mailto:${personal.email}`,  icon: <Mail size={17} />,         label: "Email" },
             ].map(({ href, icon, label }) => (
               <Link
                 key={label}
@@ -148,7 +182,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.25 }}
           className="relative flex items-center justify-center"
         >
-          {/* Outer spinning gradient ring */}
+          {/* Spinning gradient ring */}
           <div className="absolute w-[340px] h-[420px] md:w-[380px] md:h-[460px] rounded-3xl pointer-events-none">
             <div className="absolute inset-0 rounded-3xl opacity-40"
               style={{
@@ -161,10 +195,8 @@ export default function HeroSection() {
 
           {/* Avatar card */}
           <div className="relative w-72 h-80 md:w-80 md:h-96 gradient-border rounded-3xl flex flex-col items-center justify-center shadow-glow-md">
-            {/* Inner glow */}
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-accent/5 to-transparent pointer-events-none" />
 
-            {/* Photo */}
             <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-accent/30 shadow-glow-sm relative z-10">
               <Image
                 src="/images/shubham.jpg"
@@ -204,7 +236,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg-primary to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg-secondary to-transparent pointer-events-none" />
     </section>
   );
 }
