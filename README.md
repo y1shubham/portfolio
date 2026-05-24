@@ -2,7 +2,7 @@
 
 Personal portfolio website built with Next.js 15, TypeScript, Tailwind CSS, and Framer Motion. Multipage, fully dark-themed, and data-driven from a single source file.
 
-**Live at:** [y1shubham.github.io/portfolio](https://y1shubham.github.io/portfolio) *(or your deployed URL)*
+**Live at:** [https://www.y1shubham.in/](https://www.y1shubham.in/) *(or your deployed URL)*
 
 ---
 
