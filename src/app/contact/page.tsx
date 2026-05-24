@@ -13,18 +13,29 @@ export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    const subject = encodeURIComponent(form.subject || "Portfolio Contact");
-    const body = encodeURIComponent(`Hi Shubham,\n\nName: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
-    window.location.href = `mailto:${personal.email}?subject=${subject}&body=${body}`;
-    setTimeout(() => { setLoading(false); setSent(true); }, 800);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setSent(true);
+    } catch {
+      setError("Something went wrong. Please try emailing me directly.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   const contactItems = [
@@ -128,7 +139,7 @@ export default function ContactPage() {
                   <CheckCircle size={52} className="text-green-400 mb-4 mx-auto" />
                   <h3 className="text-xl font-bold text-text-primary mb-2">Message Sent!</h3>
                   <p className="text-text-muted text-[13px]">
-                    Your email client should have opened. I&apos;ll get back to you as soon as possible.
+                    Got it — I&apos;ll get back to you as soon as possible.
                   </p>
                 </motion.div>
               </div>
@@ -180,7 +191,9 @@ export default function ContactPage() {
                     : <><Send size={14} /> Send Message</>
                   }
                 </button>
-                <p className="text-xs text-text-muted text-center">Opens your email client with the message pre-filled.</p>
+                {error && (
+                  <p className="text-xs text-red-400 text-center">{error}</p>
+                )}
               </form>
             )}
           </motion.div>
