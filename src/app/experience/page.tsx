@@ -1,14 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import SectionLabel from "@/components/SectionLabel";
-import { experience, leadership, education, skills } from "@/data";
+import { experience } from "@/data";
 
 export default function ExperiencePage() {
   return (
-    <main className="bg-bg-primary min-h-screen pt-28 pb-24">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+    <main className="bg-bg-primary min-h-screen pt-28 pb-24 relative overflow-hidden">
+      <div className="absolute inset-0 dot-grid opacity-30 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-accent/5 rounded-full blur-[130px] pointer-events-none" />
+
+      <div className="max-w-5xl mx-auto px-6 md:px-10 relative z-10">
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -17,187 +22,111 @@ export default function ExperiencePage() {
           className="mb-16"
         >
           <SectionLabel label="Experience" />
-          <h1 className="text-4xl md:text-[52px] font-bold text-text-primary leading-tight mb-4">
-            Where I&apos;ve Worked
+          <h1 className="text-4xl md:text-[56px] font-extrabold leading-tight mb-4">
+            <span className="gradient-text">Where I&apos;ve </span>
+            <span className="text-text-primary">Worked</span>
           </h1>
-          <p className="text-text-muted text-base max-w-2xl">
-            Full stack development with 1+ year of professional experience across real-time sports
-            engagement platforms and SaaS products.
+          <p className="text-text-muted text-[15px] max-w-2xl">
+            1+ year of professional experience building real-time platforms and scalable web products
+            across full-time and internship roles.
           </p>
         </motion.div>
 
         {/* Timeline */}
-        <section className="mb-20">
-          <div className="relative">
-            <div className="absolute left-[22px] top-2 bottom-2 w-[2px] bg-bg-elevated hidden md:block" />
-            <div className="flex flex-col gap-10">
-              {experience.map((exp, i) => (
+        <div className="relative">
+          <div className="absolute left-[22px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-accent via-accent/40 to-transparent hidden md:block" />
+          <div className="flex flex-col gap-10">
+            {experience.map((exp, i) => (
+              <motion.div
+                key={exp.company}
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
+                className="flex gap-8"
+              >
+                {/* Dot */}
+                <div className="hidden md:flex flex-col items-center pt-1">
+                  <div className={`w-3 h-3 rounded-full border-2 mt-1 flex-shrink-0 ${
+                    exp.current ? "bg-accent border-accent shadow-glow-sm" : "bg-bg-primary border-bg-elevated"
+                  }`} />
+                </div>
+
+                {/* Card */}
                 <motion.div
-                  key={exp.company}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="flex gap-8"
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                  className="flex-1 gradient-border rounded-2xl p-7 md:p-9 transition-all duration-300 hover:shadow-glow-sm"
                 >
-                  <div className="hidden md:flex flex-col items-center pt-1">
-                    <div
-                      className={`w-[11px] h-[11px] rounded-full border-2 mt-1 flex-shrink-0 ${
-                        exp.current
-                          ? "bg-accent border-accent"
-                          : "bg-bg-primary border-bg-elevated"
-                      }`}
-                    />
+                  {/* Company + badge */}
+                  <div className="flex flex-wrap items-center gap-3 mb-2">
+                    <h3 className="text-2xl font-extrabold text-text-primary">{exp.company}</h3>
+                    {exp.current && (
+                      <span className="inline-flex items-center gap-1.5 bg-green-400/10 text-green-400 text-xs font-semibold px-3 py-1 rounded-full border border-green-400/25">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                        Current
+                      </span>
+                    )}
                   </div>
 
-                  <div className="flex-1 bg-bg-secondary rounded-xl p-6 md:p-8 border border-bg-elevated border-l-[3px] border-l-accent hover:shadow-[0_0_30px_rgba(59,130,246,0.06)] transition-all duration-300">
-                    <div className="flex flex-wrap items-center gap-3 mb-1">
-                      <h3 className="text-xl font-semibold text-text-primary">{exp.company}</h3>
-                      {exp.current && (
-                        <span className="bg-accent/15 text-accent text-xs font-medium px-3 py-0.5 rounded-full">
-                          ● Current
+                  {/* Roles */}
+                  <div className="flex flex-col gap-1 mb-6">
+                    {exp.roles.map((r) => (
+                      <div key={r.title} className="flex flex-wrap items-center gap-2">
+                        <span className="text-[14px] font-semibold gradient-text-accent">{r.title}</span>
+                        <span className="text-xs text-text-muted">{r.period}</span>
+                        <span className={`text-[11px] px-2.5 py-0.5 rounded-full capitalize font-semibold border ${
+                          r.type === "full-time"
+                            ? "bg-blue-500/10 text-blue-400 border-blue-500/25"
+                            : "bg-violet-500/10 text-violet-400 border-violet-500/25"
+                        }`}>
+                          {r.type === "full-time" ? "Full-Time" : "Internship"}
                         </span>
-                      )}
-                    </div>
+                      </div>
+                    ))}
+                  </div>
 
-                    <div className="flex flex-col gap-0.5 mb-4">
-                      {exp.roles.map((r) => (
-                        <div key={r.title} className="flex flex-wrap items-center gap-3">
-                          <span className="text-[13px] font-medium text-accent">{r.title}</span>
-                          <span className="text-xs text-text-muted">{r.period}</span>
-                          <span className="text-xs bg-bg-elevated text-text-muted px-2 py-0.5 rounded-full capitalize">
-                            {r.type}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
+                  {/* Divider */}
+                  <div className="border-t border-white/5 mb-5" />
 
-                    <ul className="space-y-2 mb-5">
-                      {exp.highlights.map((h, hi) => (
-                        <li key={hi} className="flex gap-2 text-sm text-text-muted leading-relaxed">
-                          <span className="text-accent mt-0.5 flex-shrink-0">→</span>
-                          {h}
-                        </li>
-                      ))}
-                    </ul>
+                  {/* Highlights */}
+                  <ul className="space-y-3 mb-6">
+                    {exp.highlights.map((h, hi) => (
+                      <li key={hi} className="flex gap-3 text-[14px] text-text-muted leading-relaxed">
+                        <span className="gradient-text-accent mt-0.5 flex-shrink-0 font-bold">→</span>
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
 
-                    <div className="flex flex-wrap gap-2">
-                      {exp.tech.map((t) => (
-                        <span key={t} className="bg-bg-elevated text-text-muted text-xs font-medium px-3 py-1 rounded-full">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                  {/* Tech tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {exp.tech.map((t) => (
+                      <span key={t} className="bg-bg-elevated text-text-muted text-[12px] font-medium px-3 py-1.5 rounded-lg border border-white/5 hover:border-accent/30 hover:text-text-primary transition-all duration-200">
+                        {t}
+                      </span>
+                    ))}
                   </div>
                 </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Skills section */}
-        <section className="mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-10"
-          >
-            <SectionLabel label="Skills" />
-            <h2 className="text-2xl md:text-3xl font-bold text-text-primary">Technical Stack</h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {Object.entries(skills).map(([category, items], ci) => (
-              <motion.div
-                key={category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: ci * 0.07 }}
-                className="bg-bg-secondary rounded-xl p-5 border border-bg-elevated"
-              >
-                <h3 className="text-sm font-semibold text-text-primary mb-4">{category}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {items.map((skill) => (
-                    <span
-                      key={skill}
-                      className="bg-bg-primary text-text-muted text-xs font-medium px-3 py-1.5 rounded-full border border-bg-elevated hover:border-accent/40 hover:text-text-primary transition-all duration-200"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
               </motion.div>
             ))}
           </div>
-        </section>
+        </div>
 
-        {/* Leadership + Education */}
-        <section className="grid md:grid-cols-2 gap-10">
-          {/* Leadership */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <SectionLabel label="Leadership" />
-            <h2 className="text-2xl font-bold text-text-primary mb-6">Leadership & Responsibilities</h2>
-            {leadership.map((item, i) => (
-              <div key={i} className="bg-bg-secondary rounded-xl p-6 border border-bg-elevated border-l-[3px] border-l-accent">
-                <div className="flex items-start gap-3 mb-4">
-                  <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Users size={18} className="text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-text-primary">{item.role}</h3>
-                    <p className="text-sm text-accent">{item.organization}</p>
-                    <p className="text-xs text-text-muted mt-0.5">{item.period}</p>
-                  </div>
-                </div>
-                <ul className="space-y-2">
-                  {item.highlights.map((h, hi) => (
-                    <li key={hi} className="flex gap-2 text-sm text-text-muted leading-relaxed">
-                      <span className="text-accent mt-0.5 flex-shrink-0">→</span>
-                      {h}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Education */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <SectionLabel label="Education" />
-            <h2 className="text-2xl font-bold text-text-primary mb-6">Academic Background</h2>
-            <div className="bg-bg-secondary rounded-xl p-6 border border-bg-elevated">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="w-2 h-2 rounded-full bg-accent" />
-                <span className="text-xs text-text-muted font-medium tracking-wider uppercase">
-                  {education.period}
-                </span>
-              </div>
-              <h3 className="text-lg font-semibold text-text-primary mb-1">{education.institution}</h3>
-              <p className="text-sm text-accent mb-3">{education.degree}</p>
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="bg-bg-elevated text-text-muted text-xs font-medium px-3 py-1 rounded-full">
-                  CGPA: {education.cgpa}
-                </span>
-                <span className="bg-bg-elevated text-text-muted text-xs font-medium px-3 py-1 rounded-full">
-                  Computer Science & Engineering
-                </span>
-              </div>
-            </div>
-          </motion.div>
-        </section>
+        {/* CTA links */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-16 flex flex-wrap gap-4 justify-center"
+        >
+          <Link href="/projects" className="inline-flex items-center gap-2 shimmer-btn text-white px-6 py-3 rounded-xl text-sm font-semibold shadow-glow-sm hover:shadow-glow-md transition-all">
+            View My Projects <ArrowRight size={14} />
+          </Link>
+          <Link href="/resume" className="inline-flex items-center gap-2 gradient-border text-text-muted hover:text-accent px-6 py-3 rounded-xl text-sm font-medium transition-all">
+            Download Resume <ArrowRight size={14} />
+          </Link>
+        </motion.div>
       </div>
     </main>
   );

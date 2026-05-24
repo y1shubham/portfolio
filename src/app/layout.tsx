@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   description:
     "Full Stack Developer building scalable web applications, real-time platforms, and interactive experiences using React.js, Next.js, Node.js, and Redis.",
   keywords: ["Full Stack Developer", "React.js", "Next.js", "Node.js", "Redis", "Portfolio"],
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     title: "Shubham Yadav — Full Stack Developer",
     description: "Full Stack Developer specializing in real-time systems and scalable web applications.",
