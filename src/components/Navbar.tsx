@@ -101,7 +101,8 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="fixed inset-0 top-16 z-40 md:hidden bg-bg-primary flex flex-col"
+            className="fixed inset-0 top-16 md:hidden flex flex-col"
+            style={{ backgroundColor: "#0B0F19", zIndex: 999 }}
           >
             {/* Top gradient line */}
             <div className="h-px w-full bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
