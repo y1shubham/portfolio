@@ -6,13 +6,22 @@ import { Download, ExternalLink, FileText, MapPin, Mail } from "lucide-react";
 import GithubIcon from "@/components/GithubIcon";
 import LinkedinIcon from "@/components/LinkedinIcon";
 import SectionLabel from "@/components/SectionLabel";
-import { personal, experience, skills, projects, education, leadership } from "@/data";
+import {
+  personal,
+  experience,
+  skills,
+  projects,
+  education,
+  leadership,
+} from "@/data";
 
 function SectionDivider({ title }: { title: string }) {
   return (
     <div className="flex items-center gap-3 mb-5 pb-3 border-b border-white/5">
       <span className="w-4 h-[2px] rounded-full bg-gradient-to-r from-accent to-accent-cyan" />
-      <h3 className="text-[11px] font-bold tracking-[3px] uppercase gradient-text-accent">{title}</h3>
+      <h3 className="text-[11px] font-bold tracking-[3px] uppercase gradient-text-accent">
+        {title}
+      </h3>
     </div>
   );
 }
@@ -68,13 +77,42 @@ export default function ResumePage() {
           <div className="border-b border-white/5 p-8 md:p-10 bg-bg-secondary/50">
             <div className="flex items-start justify-between gap-4 flex-wrap">
               <div>
-                <h2 className="text-3xl font-extrabold gradient-text">{personal.name}</h2>
-                <p className="gradient-text-accent font-semibold mt-1 text-sm">{personal.tagline} · {personal.role}</p>
+                <h2 className="text-3xl font-extrabold gradient-text">
+                  {personal.name}
+                </h2>
+                <p className="gradient-text-accent font-semibold mt-1 text-sm">
+                  {personal.tagline} · {personal.role}
+                </p>
                 <div className="flex flex-wrap gap-x-5 gap-y-1.5 mt-3">
-                  <span className="flex items-center gap-1 text-xs text-text-muted"><MapPin size={11} />{personal.location}</span>
-                  <a href={`mailto:${personal.email}`} className="flex items-center gap-1 text-xs text-text-muted hover:text-accent transition-colors"><Mail size={11} />{personal.email}</a>
-                  <a href={personal.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-xs text-text-muted hover:text-accent transition-colors"><GithubIcon size={11} />github.com/y1shubham</a>
-                  <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-xs text-text-muted hover:text-accent transition-colors"><LinkedinIcon size={11} />linkedin.com/in/y1shubham</a>
+                  <span className="flex items-center gap-1 text-xs text-text-muted">
+                    <MapPin size={11} />
+                    {personal.location}
+                  </span>
+                  <a
+                    href={`mailto:${personal.email}`}
+                    className="flex items-center gap-1 text-xs text-text-muted hover:text-accent transition-colors"
+                  >
+                    <Mail size={11} />
+                    {personal.email}
+                  </a>
+                  <a
+                    href={personal.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-xs text-text-muted hover:text-accent transition-colors"
+                  >
+                    <GithubIcon size={11} />
+                    github.com/y1shubham
+                  </a>
+                  <a
+                    href={personal.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-xs text-text-muted hover:text-accent transition-colors"
+                  >
+                    <LinkedinIcon size={11} />
+                    linkedin.com/in/y1shubham
+                  </a>
                 </div>
               </div>
               <div className="hidden md:flex items-center justify-center w-12 h-12 bg-accent/10 border border-accent/20 rounded-xl">
@@ -91,36 +129,59 @@ export default function ResumePage() {
                 {experience.map((exp) => (
                   <div key={exp.company}>
                     <div className="flex flex-wrap items-center gap-2 mb-1">
-                      <h4 className="font-bold text-text-primary">{exp.company}</h4>
+                      <h4 className="font-bold text-text-primary">
+                        {exp.company}
+                      </h4>
                       {exp.current && (
                         <span className="inline-flex items-center gap-1 bg-green-400/10 text-green-400 text-[11px] font-semibold px-2.5 py-0.5 rounded-full border border-green-400/25">
-                          <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />Current
+                          <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                          Current
                         </span>
                       )}
                     </div>
                     {exp.roles.map((r) => (
-                      <div key={r.title} className="flex flex-wrap items-center gap-2 mb-0.5">
-                        <span className="text-sm gradient-text-accent font-semibold">{r.title}</span>
-                        <span className="text-xs text-text-muted">· {r.period}</span>
-                        <span className={`text-[11px] px-2 py-0.5 rounded-full font-medium border ${
-                          r.type === "full-time"
-                            ? "bg-blue-500/10 text-blue-400 border-blue-500/25"
-                            : "bg-violet-500/10 text-violet-400 border-violet-500/25"
-                        }`}>
+                      <div
+                        key={r.title}
+                        className="flex flex-wrap items-center gap-2 mb-0.5"
+                      >
+                        <span className="text-sm gradient-text-accent font-semibold">
+                          {r.title}
+                        </span>
+                        <span className="text-xs text-text-muted">
+                          · {r.period}
+                        </span>
+                        <span
+                          className={`text-[11px] px-2 py-0.5 rounded-full font-medium border ${
+                            r.type === "full-time"
+                              ? "bg-blue-500/10 text-blue-400 border-blue-500/25"
+                              : "bg-violet-500/10 text-violet-400 border-violet-500/25"
+                          }`}
+                        >
                           {r.type === "full-time" ? "Full-Time" : "Internship"}
                         </span>
                       </div>
                     ))}
                     <ul className="mt-2 space-y-1.5">
                       {exp.highlights.map((h, hi) => (
-                        <li key={hi} className="flex gap-2 text-[13px] text-text-muted">
-                          <span className="gradient-text-accent flex-shrink-0 mt-0.5 font-bold">·</span>{h}
+                        <li
+                          key={hi}
+                          className="flex gap-2 text-[13px] text-text-muted"
+                        >
+                          <span className="gradient-text-accent flex-shrink-0 mt-0.5 font-bold">
+                            ·
+                          </span>
+                          {h}
                         </li>
                       ))}
                     </ul>
                     <div className="flex flex-wrap gap-1.5 mt-3">
                       {exp.tech.map((t) => (
-                        <span key={t} className="text-[11px] bg-bg-elevated text-text-muted px-2.5 py-1 rounded-lg border border-white/5">{t}</span>
+                        <span
+                          key={t}
+                          className="text-[11px] bg-bg-elevated text-text-muted px-2.5 py-1 rounded-lg border border-white/5"
+                        >
+                          {t}
+                        </span>
                       ))}
                     </div>
                   </div>
@@ -136,19 +197,34 @@ export default function ResumePage() {
                   <div key={p.name}>
                     <div className="flex flex-wrap items-center gap-2 mb-1">
                       <h4 className="font-bold text-text-primary">{p.name}</h4>
-                      <span className="text-xs text-text-muted">— {p.tagline}</span>
-                      <span className="text-[11px] bg-bg-elevated text-text-muted px-2.5 py-0.5 rounded-full border border-white/5">In Development</span>
+                      <span className="text-xs text-text-muted">
+                        - {p.tagline}
+                      </span>
+                      <span className="text-[11px] bg-bg-elevated text-text-muted px-2.5 py-0.5 rounded-full border border-white/5">
+                        In Development
+                      </span>
                     </div>
                     <ul className="space-y-1.5">
                       {p.longDescription.map((l, li) => (
-                        <li key={li} className="flex gap-2 text-[13px] text-text-muted">
-                          <span className="gradient-text-accent flex-shrink-0 mt-0.5 font-bold">·</span>{l}
+                        <li
+                          key={li}
+                          className="flex gap-2 text-[13px] text-text-muted"
+                        >
+                          <span className="gradient-text-accent flex-shrink-0 mt-0.5 font-bold">
+                            ·
+                          </span>
+                          {l}
                         </li>
                       ))}
                     </ul>
                     <div className="flex flex-wrap gap-1.5 mt-3">
                       {p.stack.map((t) => (
-                        <span key={t} className="text-[11px] bg-bg-elevated text-text-muted px-2.5 py-1 rounded-lg border border-white/5">{t}</span>
+                        <span
+                          key={t}
+                          className="text-[11px] bg-bg-elevated text-text-muted px-2.5 py-1 rounded-lg border border-white/5"
+                        >
+                          {t}
+                        </span>
                       ))}
                     </div>
                   </div>
@@ -161,8 +237,13 @@ export default function ResumePage() {
               <SectionDivider title="Technical Skills" />
               <div className="space-y-2.5">
                 {Object.entries(skills).map(([cat, items]) => (
-                  <div key={cat} className="flex gap-3 text-[13px] flex-wrap items-baseline">
-                    <span className="text-text-primary font-semibold min-w-[140px] flex-shrink-0">{cat}:</span>
+                  <div
+                    key={cat}
+                    className="flex gap-3 text-[13px] flex-wrap items-baseline"
+                  >
+                    <span className="text-text-primary font-semibold min-w-[140px] flex-shrink-0">
+                      {cat}:
+                    </span>
                     <span className="text-text-muted">{items.join(", ")}</span>
                   </div>
                 ))}
@@ -173,11 +254,19 @@ export default function ResumePage() {
             <div className="grid md:grid-cols-2 gap-8">
               <section>
                 <SectionDivider title="Education" />
-                <h4 className="font-bold text-text-primary">{education.institution}</h4>
-                <p className="text-sm gradient-text-accent font-semibold mt-0.5">{education.degree}</p>
+                <h4 className="font-bold text-text-primary">
+                  {education.institution}
+                </h4>
+                <p className="text-sm gradient-text-accent font-semibold mt-0.5">
+                  {education.degree}
+                </p>
                 <div className="flex flex-wrap gap-2 mt-2">
-                  <span className="text-[11px] bg-bg-elevated text-text-muted px-2.5 py-1 rounded-lg border border-white/5">{education.period}</span>
-                  <span className="text-[11px] bg-bg-elevated text-text-muted px-2.5 py-1 rounded-lg border border-white/5">CGPA: {education.cgpa}</span>
+                  <span className="text-[11px] bg-bg-elevated text-text-muted px-2.5 py-1 rounded-lg border border-white/5">
+                    {education.period}
+                  </span>
+                  <span className="text-[11px] bg-bg-elevated text-text-muted px-2.5 py-1 rounded-lg border border-white/5">
+                    CGPA: {education.cgpa}
+                  </span>
                 </div>
               </section>
               <section>
@@ -185,8 +274,12 @@ export default function ResumePage() {
                 {leadership.map((item, i) => (
                   <div key={i}>
                     <h4 className="font-bold text-text-primary">{item.role}</h4>
-                    <p className="text-sm gradient-text-accent font-semibold mt-0.5">{item.organization}</p>
-                    <p className="text-xs text-text-muted mt-0.5">{item.period}</p>
+                    <p className="text-sm gradient-text-accent font-semibold mt-0.5">
+                      {item.organization}
+                    </p>
+                    <p className="text-xs text-text-muted mt-0.5">
+                      {item.period}
+                    </p>
                   </div>
                 ))}
               </section>
@@ -195,7 +288,9 @@ export default function ResumePage() {
 
           {/* Footer */}
           <div className="border-t border-white/5 p-6 flex items-center justify-between flex-wrap gap-4 bg-bg-elevated/20">
-            <p className="text-[13px] text-text-muted">Download the full PDF for complete details.</p>
+            <p className="text-[13px] text-text-muted">
+              Download the full PDF for complete details.
+            </p>
             <a
               href={personal.resumeFile}
               download="Shubham_Yadav_Resume.pdf"
@@ -214,9 +309,21 @@ export default function ResumePage() {
           className="mt-6 flex flex-wrap gap-3 justify-center"
         >
           {[
-            { label: "GitHub", href: personal.github, icon: <GithubIcon size={13} /> },
-            { label: "LinkedIn", href: personal.linkedin, icon: <LinkedinIcon size={13} /> },
-            { label: "Email", href: `mailto:${personal.email}`, icon: <Mail size={13} /> },
+            {
+              label: "GitHub",
+              href: personal.github,
+              icon: <GithubIcon size={13} />,
+            },
+            {
+              label: "LinkedIn",
+              href: personal.linkedin,
+              icon: <LinkedinIcon size={13} />,
+            },
+            {
+              label: "Email",
+              href: `mailto:${personal.email}`,
+              icon: <Mail size={13} />,
+            },
           ].map(({ label, href, icon }) => (
             <Link
               key={label}

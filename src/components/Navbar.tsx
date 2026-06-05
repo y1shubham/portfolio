@@ -8,16 +8,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Home",       href: "/" },
-  { label: "Projects",   href: "/projects" },
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
   { label: "Experience", href: "/experience" },
-  { label: "Resume",     href: "/resume" },
-  { label: "Contact",    href: "/contact" },
+  { label: "Resume", href: "/resume" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [open, setOpen]         = useState(false);
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -26,12 +26,16 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   // Lock body scroll when menu open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   return (
@@ -41,13 +45,15 @@ export default function Navbar() {
           "fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-500",
           scrolled
             ? "bg-bg-primary/80 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.4)]"
-            : "bg-transparent"
+            : "bg-transparent",
         )}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10 h-full flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative group z-50">
-            <span className="text-xl font-extrabold gradient-text-accent tracking-tight">SY</span>
+            <span className="text-xl font-extrabold gradient-text-accent tracking-tight">
+              SY
+            </span>
             <span className="absolute -bottom-0.5 left-0 right-0 h-px bg-gradient-to-r from-accent to-accent-cyan scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
           </Link>
 
@@ -61,7 +67,7 @@ export default function Navbar() {
                   "relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
                   pathname === link.href
                     ? "text-text-primary bg-accent/10"
-                    : "text-text-muted hover:text-text-primary hover:bg-white/5"
+                    : "text-text-muted hover:text-text-primary hover:bg-white/5",
                 )}
               >
                 {link.label}
@@ -93,7 +99,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* Mobile full-screen overlay — outside header so it truly covers the page */}
+      {/* Mobile full-screen overlay - outside header so it truly covers the page */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -121,7 +127,7 @@ export default function Navbar() {
                       "flex items-center px-5 py-4 rounded-xl text-base font-semibold transition-all",
                       pathname === link.href
                         ? "text-accent bg-accent/10 border border-accent/20"
-                        : "text-text-muted hover:text-text-primary hover:bg-white/5"
+                        : "text-text-muted hover:text-text-primary hover:bg-white/5",
                     )}
                   >
                     {link.label}

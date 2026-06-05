@@ -13,28 +13,42 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Shubham Yadav — Full Stack Developer",
+  title: "Shubham Yadav - Full Stack Developer",
   description:
     "Full Stack Developer building scalable web applications, real-time platforms, and interactive experiences using React.js, Next.js, Node.js, and Redis.",
-  keywords: ["Full Stack Developer", "React.js", "Next.js", "Node.js", "Redis", "Portfolio"],
+  keywords: [
+    "Full Stack Developer",
+    "React.js",
+    "Next.js",
+    "Node.js",
+    "Redis",
+    "Portfolio",
+  ],
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Shubham Yadav — Full Stack Developer",
-    description: "Full Stack Developer specializing in real-time systems and scalable web applications.",
+    title: "Shubham Yadav - Full Stack Developer",
+    description:
+      "Full Stack Developer specializing in real-time systems and scalable web applications.",
     type: "website",
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={inter.variable} data-scroll-behavior="smooth">
       <body className="min-h-screen bg-bg-primary text-text-primary font-inter antialiased">
         <CustomCursor />
         <ScrollProgress />
         <Navbar />
-        <main><PageTransition>{children}</PageTransition></main>
+        <main>
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
         <BackToTop />
         <Analytics />

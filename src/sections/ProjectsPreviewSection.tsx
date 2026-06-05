@@ -31,8 +31,10 @@ export default function ProjectsPreviewSection() {
             <span className="gradient-text">Building</span>
           </h2>
           <p className="text-text-muted text-[15px] max-w-xl mx-auto mb-14">
-            Ambitious systems engineered to production quality — real-time, scalable, and built
-            with modern full-stack architecture. 3 projects are actively under development and 1 — Space Miner, a browser-based arcade survival game — is already live.
+            Ambitious systems engineered to production quality - real-time,
+            scalable, and built with modern full-stack architecture. 3 projects
+            are actively under development and 1 - Space Miner, a browser-based
+            arcade survival game - is already live.
           </p>
         </motion.div>
 
@@ -58,7 +60,10 @@ export default function ProjectsPreviewSection() {
               px-5 py-2.5 rounded-full hover:shadow-glow-sm"
           >
             View all projects
-            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight
+              size={14}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </Link>
         </motion.div>
       </div>

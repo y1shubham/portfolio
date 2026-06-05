@@ -15,11 +15,53 @@ export const personal = {
 
 export const skills = {
   Languages: ["JavaScript", "TypeScript", "Python", "Java", "C++", "SQL"],
-  Frontend: ["React.js", "Next.js", "Lit.js", "Tailwind CSS", "Redux", "Zustand", "ShadCN UI", "HTML5", "CSS3", "CreateJS", "Canvas API", "Web Audio API"],
-  Backend: ["Node.js", "Express.js", "Django", "REST APIs", "JWT Auth", "Socket.io", "BullMQ"],
-  "Database & Cloud": ["PostgreSQL", "MongoDB", "Redis", "Prisma ORM", "AWS EC2", "AWS S3"],
-  "DevOps & Tools": ["Docker", "Git", "GitHub", "CI/CD", "Postman", "Vercel", "Render"],
-  Concepts: ["Real-Time Systems", "System Design", "Caching", "API Integrations", "SaaS Architecture"],
+  Frontend: [
+    "React.js",
+    "Next.js",
+    "Lit.js",
+    "Tailwind CSS",
+    "Redux",
+    "Zustand",
+    "ShadCN UI",
+    "HTML5",
+    "CSS3",
+    "CreateJS",
+    "Canvas API",
+    "Web Audio API",
+  ],
+  Backend: [
+    "Node.js",
+    "Express.js",
+    "Django",
+    "REST APIs",
+    "JWT Auth",
+    "Socket.io",
+    "BullMQ",
+  ],
+  "Database & Cloud": [
+    "PostgreSQL",
+    "MongoDB",
+    "Redis",
+    "Prisma ORM",
+    "AWS EC2",
+    "AWS S3",
+  ],
+  "DevOps & Tools": [
+    "Docker",
+    "Git",
+    "GitHub",
+    "CI/CD",
+    "Postman",
+    "Vercel",
+    "Render",
+  ],
+  Concepts: [
+    "Real-Time Systems",
+    "System Design",
+    "Caching",
+    "API Integrations",
+    "SaaS Architecture",
+  ],
 };
 
 export const experience = [
@@ -27,23 +69,43 @@ export const experience = [
     company: "LiveLike Sports Technologies",
     companyUrl: "https://livelike.com",
     roles: [
-      { title: "Assistant Software Developer (Web)", period: "Jul 2025 – Present", type: "full-time" },
-      { title: "Software Developer Intern", period: "Feb 2025 – Jul 2025", type: "internship" },
+      {
+        title: "Assistant Software Developer (Web)",
+        period: "Jul 2025 – Present",
+        type: "full-time",
+      },
+      {
+        title: "Software Developer Intern",
+        period: "Feb 2025 – Jul 2025",
+        type: "internship",
+      },
     ],
     highlights: [
-      "Built and shipped interactive sports widgets — live polls, reactions, and leaderboards — using React.js and Lit.js, serving real-time audiences across live sports broadcasts.",
+      "Built and shipped interactive sports widgets - live polls, reactions, and leaderboards - using React.js and Lit.js, serving real-time audiences across live sports broadcasts.",
       "Architected a library of reusable frontend components and scalable UI workflows that power core engagement features across the platform.",
       "Cut API overhead by integrating Redis caching and CDN strategies alongside SDAPI/OPTA sports data services, improving platform response times.",
-      "Shipped production-ready features end-to-end — from design spec to deployment — across multiple agile sprint cycles.",
+      "Shipped production-ready features end-to-end - from design spec to deployment - across multiple agile sprint cycles.",
     ],
-    tech: ["React.js", "Lit.js", "Node.js", "Redis", "WebSocket", "SDAPI/OPTA", "TypeScript"],
+    tech: [
+      "React.js",
+      "Lit.js",
+      "Node.js",
+      "Redis",
+      "WebSocket",
+      "SDAPI/OPTA",
+      "TypeScript",
+    ],
     current: true,
   },
   {
     company: "Zeepty",
     companyUrl: "#",
     roles: [
-      { title: "Full Stack Developer Intern", period: "May 2024 – Jul 2024", type: "internship" },
+      {
+        title: "Full Stack Developer Intern",
+        period: "May 2024 – Jul 2024",
+        type: "internship",
+      },
     ],
     highlights: [
       "Delivered responsive, pixel-accurate frontend interfaces in Next.js and Tailwind CSS across web and mobile breakpoints.",
@@ -63,7 +125,7 @@ export const projects = [
       "A polished arcade game built with CreateJS featuring asteroid fields, 4 resource types, 3 power-ups, combo multipliers, procedural Web Audio SFX, particle effects, and persistent high scores.",
     longDescription: [
       "Built a mobile-first arcade game on HTML5 Canvas using CreateJS (EaselJS, TweenJS, PreloadJS) with a delta-time game loop running at 60 FPS.",
-      "Engineered procedural sound effects via the Web Audio API, a combo/scoring system, difficulty scaling, screen shake, particle bursts, and localStorage-backed save data — all in vanilla JavaScript with no build tools.",
+      "Engineered procedural sound effects via the Web Audio API, a combo/scoring system, difficulty scaling, screen shake, particle bursts, and localStorage-backed save data - all in vanilla JavaScript with no build tools.",
     ],
     stack: ["CreateJS", "Web Audio API", "HTML5 Canvas", "Vanilla JS"],
     archTags: ["Game Dev", "Canvas", "Procedural"],
