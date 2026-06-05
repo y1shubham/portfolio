@@ -8,6 +8,7 @@ import CustomCursor from "@/components/CustomCursor";
 import PageTransition from "@/components/PageTransition";
 import BackToTop from "@/components/BackToTop";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <BackToTop />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
