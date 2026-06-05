@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 
-const row1 = ["React.js", "Next.js", "TypeScript", "Node.js", "Redis", "PostgreSQL", "Socket.io", "Docker", "Tailwind CSS", "Prisma ORM", "BullMQ", "Lit.js"];
-const row2 = ["AWS EC2", "AWS S3", "Express.js", "REST APIs", "WebSocket", "Git", "GitHub", "CI/CD", "Vercel", "Django", "MongoDB", "Redux"];
+const row1 = ["React.js", "Next.js", "TypeScript", "Node.js", "Redis", "PostgreSQL", "Socket.io", "Docker", "Tailwind CSS", "Prisma ORM", "BullMQ", "Lit.js", "CreateJS"];
+const row2 = ["AWS EC2", "AWS S3", "Express.js", "REST APIs", "WebSocket", "Git", "GitHub", "CI/CD", "Vercel", "Django", "MongoDB", "Redux", "Web Audio API"];
 
 function MarqueeRow({ items, reverse = false }: { items: string[]; reverse?: boolean }) {
   const doubled = [...items, ...items];

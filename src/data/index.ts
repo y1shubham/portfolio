@@ -15,7 +15,7 @@ export const personal = {
 
 export const skills = {
   Languages: ["JavaScript", "TypeScript", "Python", "Java", "C++", "SQL"],
-  Frontend: ["React.js", "Next.js", "Lit.js", "Tailwind CSS", "Redux", "Zustand", "ShadCN UI", "HTML5", "CSS3"],
+  Frontend: ["React.js", "Next.js", "Lit.js", "Tailwind CSS", "Redux", "Zustand", "ShadCN UI", "HTML5", "CSS3", "CreateJS", "Canvas API", "Web Audio API"],
   Backend: ["Node.js", "Express.js", "Django", "REST APIs", "JWT Auth", "Socket.io", "BullMQ"],
   "Database & Cloud": ["PostgreSQL", "MongoDB", "Redis", "Prisma ORM", "AWS EC2", "AWS S3"],
   "DevOps & Tools": ["Docker", "Git", "GitHub", "CI/CD", "Postman", "Vercel", "Render"],
@@ -56,6 +56,22 @@ export const experience = [
 ];
 
 export const projects = [
+  {
+    name: "Space Miner",
+    tagline: "Browser-Based Arcade Space Survival Game",
+    description:
+      "A polished arcade game built with CreateJS featuring asteroid fields, 4 resource types, 3 power-ups, combo multipliers, procedural Web Audio SFX, particle effects, and persistent high scores.",
+    longDescription: [
+      "Built a mobile-first arcade game on HTML5 Canvas using CreateJS (EaselJS, TweenJS, PreloadJS) with a delta-time game loop running at 60 FPS.",
+      "Engineered procedural sound effects via the Web Audio API, a combo/scoring system, difficulty scaling, screen shake, particle bursts, and localStorage-backed save data — all in vanilla JavaScript with no build tools.",
+    ],
+    stack: ["CreateJS", "Web Audio API", "HTML5 Canvas", "Vanilla JS"],
+    archTags: ["Game Dev", "Canvas", "Procedural"],
+    color: "#F97316",
+    status: "live" as const,
+    github: null,
+    demo: "https://space-miner.y1shubham.in",
+  },
   {
     name: "StreamSync",
     tagline: "Real-Time Event Engagement Platform",

@@ -6,7 +6,7 @@ import SectionLabel from "@/components/SectionLabel";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data";
 
-const filters = ["All", "Real-Time", "AI/ML", "SaaS", "Distributed", "Observability"];
+const filters = ["All", "Game Dev", "Canvas", "Real-Time", "AI/ML", "SaaS", "Distributed", "Observability"];
 
 export default function ProjectsPage() {
   const [active, setActive] = useState("All");
@@ -35,7 +35,7 @@ export default function ProjectsPage() {
           </h1>
           <p className="text-text-muted text-[15px] max-w-2xl">
             Ambitious systems engineered to production quality — real-time, scalable, and built
-            with modern full-stack architecture. All three projects are actively under development.
+            with modern full-stack architecture. 3 projects are actively under development and 1 — Space Miner, a browser-based arcade survival game — is already live.
           </p>
         </motion.div>
 
@@ -97,7 +97,7 @@ export default function ProjectsPage() {
         >
           <p className="text-[13px] text-text-muted leading-relaxed">
             <span className="gradient-text-accent font-semibold">Note: </span>
-            All three projects are under active development and not yet publicly available.
+            Space Miner is live and playable. The remaining three projects — StreamSync, DevFlow AI, and APIFlow — are under active development and not yet publicly available.
             They represent my focus on building production-grade real-time and AI-integrated systems —
             architecture, scalability, and developer experience are the primary design goals.
           </p>

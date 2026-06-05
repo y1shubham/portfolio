@@ -32,7 +32,7 @@ export default function ProjectsPreviewSection() {
           </h2>
           <p className="text-text-muted text-[15px] max-w-xl mx-auto mb-14">
             Ambitious systems engineered to production quality — real-time, scalable, and built
-            with modern full-stack architecture.
+            with modern full-stack architecture. 3 projects are actively under development and 1 — Space Miner, a browser-based arcade survival game — is already live.
           </p>
         </motion.div>
 
