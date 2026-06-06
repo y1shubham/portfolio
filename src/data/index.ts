@@ -4,7 +4,7 @@ export const personal = {
   company: "LiveLike Sports Technologies",
   tagline: "Full Stack Developer",
   summary:
-    "Full Stack Developer with 1 year of professional experience building scalable web applications, interactive user experiences, and real-time engagement platforms using React.js, Next.js, Lit.js, Node.js, PostgreSQL, and Redis.",
+    "Full Stack Developer with 1 year of experience at LiveLike, building real-time sports engagement platforms and scalable web applications with React.js, Next.js, Lit.js, Node.js, PostgreSQL, and Redis.",
   email: "shubham.yadav.inbox@gmail.com",
   phone: "+91-9198929673",
   location: "Gurgaon, Haryana, India",
@@ -81,10 +81,10 @@ export const experience = [
       },
     ],
     highlights: [
-      "Built and shipped interactive sports widgets - live polls, reactions, and leaderboards - using React.js and Lit.js, serving real-time audiences across live sports broadcasts.",
-      "Architected a library of reusable frontend components and scalable UI workflows that power core engagement features across the platform.",
+      "Built and shipped sports widgets - live polls, reactions, and leaderboards - in React.js and Lit.js, used by real audiences during live sports broadcasts.",
+      "Built a library of reusable frontend components that powers the core engagement features across the platform.",
       "Cut API overhead by integrating Redis caching and CDN strategies alongside SDAPI/OPTA sports data services, improving platform response times.",
-      "Shipped production-ready features end-to-end - from design spec to deployment - across multiple agile sprint cycles.",
+      "Shipped production-ready features end-to-end - from design spec to deployment - across multiple sprint cycles.",
     ],
     tech: [
       "React.js",
@@ -108,9 +108,9 @@ export const experience = [
       },
     ],
     highlights: [
-      "Delivered responsive, pixel-accurate frontend interfaces in Next.js and Tailwind CSS across web and mobile breakpoints.",
-      "Integrated REST APIs and JWT authentication, building reusable component systems that accelerated feature delivery.",
-      "Partnered with design and backend teams to implement features, resolve UX issues, and improve frontend performance.",
+      "Built responsive, pixel-accurate UIs in Next.js and Tailwind CSS for web and mobile.",
+      "Integrated REST APIs and JWT auth, built reusable component systems that sped up feature delivery.",
+      "Worked closely with design and backend teams on features, UX fixes, and frontend performance.",
     ],
     tech: ["Next.js", "React.js", "Tailwind CSS", "REST APIs", "TypeScript"],
     current: false,
@@ -122,10 +122,10 @@ export const projects = [
     name: "Space Miner",
     tagline: "Browser-Based Arcade Space Survival Game",
     description:
-      "A polished arcade game built with CreateJS featuring asteroid fields, 4 resource types, 3 power-ups, combo multipliers, procedural Web Audio SFX, particle effects, and persistent high scores.",
+      "Mine resources, dodge asteroids, chain combos, and survive as long as you can. Built with CreateJS on HTML5 Canvas — 3 power-ups, particle effects, procedural sound, and a persistent high score.",
     longDescription: [
-      "Built a mobile-first arcade game on HTML5 Canvas using CreateJS (EaselJS, TweenJS, PreloadJS) with a delta-time game loop running at 60 FPS.",
-      "Engineered procedural sound effects via the Web Audio API, a combo/scoring system, difficulty scaling, screen shake, particle bursts, and localStorage-backed save data - all in vanilla JavaScript with no build tools.",
+      "Built a mobile-first arcade game on HTML5 Canvas using CreateJS (EaselJS, TweenJS, PreloadJS) with a delta-time game loop at 60 FPS.",
+      "Custom sound effects via the Web Audio API, combo scoring, screen shake, particle bursts, and localStorage save data — all in vanilla JS, no build tools.",
     ],
     stack: ["CreateJS", "Web Audio API", "HTML5 Canvas", "Vanilla JS"],
     archTags: ["Game Dev", "Canvas", "Procedural"],
@@ -138,10 +138,10 @@ export const projects = [
     name: "StreamSync",
     tagline: "Real-Time Event Engagement Platform",
     description:
-      "A scalable real-time platform enabling synchronized live chats, polls, reactions, leaderboards, and multi-user interactions powered by Redis Pub/Sub and WebSocket architecture.",
+      "A real-time platform for live event engagement — synchronized chats, polls, reactions, and leaderboards, built on Redis Pub/Sub and WebSocket.",
     longDescription: [
-      "Developed a real-time event engagement platform enabling live chats, polls, reactions, leaderboards, and synchronized multi-user interactions.",
-      "Implemented scalable WebSocket architecture, Redis Pub/Sub integration, and real-time analytics systems for high-performance event synchronization workflows.",
+      "Building a live event engagement platform with chat, polls, reactions, and leaderboards that stay in sync across all connected users.",
+      "WebSocket architecture with Redis Pub/Sub handles real-time sync; a live analytics layer tracks engagement as it happens.",
     ],
     stack: ["Next.js", "Socket.io", "Redis Pub/Sub", "PostgreSQL"],
     archTags: ["WebSocket", "Distributed", "Event-Driven"],
@@ -154,10 +154,10 @@ export const projects = [
     name: "DevFlow AI",
     tagline: "AI-Powered Developer Collaboration Platform",
     description:
-      "A modern SaaS collaboration platform featuring AI-powered sprint planning, Kanban workflows, real-time collaboration, and GitHub-integrated productivity systems.",
+      "A SaaS platform for developer teams — AI-assisted sprint planning, Kanban boards, real-time collaboration, and GitHub integration in one place.",
     longDescription: [
-      "Built an AI-powered developer collaboration platform featuring real-time sprint management, AI task generation, GitHub-integrated workflows, and collaborative Kanban boards.",
-      "Implemented scalable backend APIs, Prisma ORM workflows, Redis caching, role-based workspace management, and real-time collaboration systems using Socket.io.",
+      "Building a developer collaboration platform with AI-generated sprint tasks, GitHub-connected Kanban boards, and real-time multi-user editing.",
+      "Backend covers Prisma ORM, Redis caching, role-based workspaces, and Socket.io for live collaboration.",
     ],
     stack: ["Next.js", "Node.js", "PostgreSQL", "Redis", "Socket.io"],
     archTags: ["AI/ML", "SaaS", "Real-Time"],
@@ -170,10 +170,10 @@ export const projects = [
     name: "APIFlow",
     tagline: "Scalable API Monitoring Platform",
     description:
-      "A backend-heavy observability platform featuring distributed monitoring workers, Redis-backed queues, uptime tracking, and real-time analytics dashboards.",
+      "An API monitoring platform — distributed workers check your endpoints on a schedule, queue failures with BullMQ, and surface uptime and latency on a live dashboard.",
     longDescription: [
-      "Architected a scalable API monitoring and observability platform featuring real-time analytics dashboards, distributed monitoring workers, uptime tracking, and automated incident alerting.",
-      "Engineered Redis-backed queue systems, cron-based monitoring services, and WebSocket-driven analytics workflows for scalable observability infrastructure.",
+      "Building an API observability platform with distributed monitoring workers, uptime tracking, and automated alerting.",
+      "BullMQ handles the monitoring queue; cron workers run checks on schedule; WebSocket pushes analytics updates live to the dashboard.",
     ],
     stack: ["Node.js", "PostgreSQL", "Redis", "BullMQ", "Socket.io"],
     archTags: ["Distributed", "Queue-Based", "Observability"],

@@ -13,7 +13,7 @@ const stats = [
     numeric: true,
   },
   {
-    value: 3,
+    value: 4,
     suffix: "",
     label: "Projects Built",
     gradient: "from-violet-500 to-purple-400",
@@ -95,8 +95,9 @@ export default function AboutSection() {
             real-time data, Node.js APIs, and PostgreSQL for data persistence.
           </p>
           <p className="text-[15px] text-text-muted leading-relaxed">
-            Outside of work, I&apos;m building three projects - StreamSync,
-            DevFlow AI, and APIFlow - all focused on real-time systems and
+            Outside of work, I shipped Space Miner - a browser-based arcade
+            game built with CreateJS - and I&apos;m actively building StreamSync,
+            DevFlow AI, and APIFlow, all focused on real-time systems and
             scalable architecture. I graduated from NSUT Delhi with a B.Tech in
             Computer Science (2025) and served as Training &amp; Placement
             Coordinator, coordinating placements for my entire batch.
