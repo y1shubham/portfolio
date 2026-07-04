@@ -9,7 +9,7 @@ import PageTransition from "@/components/PageTransition";
 import BackToTop from "@/components/BackToTop";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { PersonJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
+import { PersonJsonLd, WebSiteJsonLd, SpaceMinerJsonLd } from "@/components/JsonLd";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -43,6 +43,10 @@ export const metadata: Metadata = {
     "PostgreSQL",
     "Socket.io",
     "portfolio website",
+    "Space Miner",
+    "Space Miner game",
+    "browser arcade game",
+    "HTML5 Canvas game",
   ],
   authors: [{ name: "Shubham Yadav", url: "https://y1shubham.in" }],
   creator: "Shubham Yadav",
@@ -110,6 +114,7 @@ export default function RootLayout({
         <SpeedInsights />
         <PersonJsonLd />
         <WebSiteJsonLd />
+        <SpaceMinerJsonLd />
       </body>
     </html>
   );

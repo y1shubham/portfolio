@@ -34,6 +34,7 @@ export function PersonJsonLd() {
     sameAs: [
       "https://github.com/y1shubham",
       "https://linkedin.com/in/y1shubham",
+      "https://space-miner.y1shubham.in",
     ],
     address: {
       "@type": "PostalAddress",
@@ -63,6 +64,39 @@ export function WebSiteJsonLd() {
     author: {
       "@type": "Person",
       name: "Shubham Yadav",
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+export function SpaceMinerJsonLd() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    name: "Space Miner",
+    url: "https://space-miner.y1shubham.in",
+    description:
+      "A browser-based arcade space survival game. Mine resources, dodge asteroids, chain combos, and survive as long as you can. Built with CreateJS on HTML5 Canvas.",
+    genre: ["Arcade", "Survival"],
+    gamePlatform: "Web Browser",
+    applicationCategory: "Game",
+    operatingSystem: "Any (Browser)",
+    author: {
+      "@type": "Person",
+      name: "Shubham Yadav",
+      url: "https://y1shubham.in",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
     },
   };
 
