@@ -80,14 +80,32 @@ export function SpaceMinerJsonLd() {
     "@context": "https://schema.org",
     "@type": "VideoGame",
     name: "Space Miner",
+    alternateName: "Space Miner — Browser Arcade Game by Shubham Yadav",
     url: "https://space-miner.y1shubham.in",
     description:
-      "A browser-based arcade space survival game. Mine resources, dodge asteroids, chain combos, and survive as long as you can. Built with CreateJS on HTML5 Canvas.",
-    genre: ["Arcade", "Survival"],
-    gamePlatform: "Web Browser",
+      "A free browser-based arcade space survival game. Mine resources, dodge asteroids, chain combos, collect power-ups, and survive as long as you can. Built with CreateJS on HTML5 Canvas with procedural sound effects and particle systems. Play instantly in your browser — no download required.",
+    genre: ["Arcade", "Survival", "Space", "Action"],
+    gamePlatform: ["Web Browser", "Mobile Browser"],
     applicationCategory: "Game",
-    operatingSystem: "Any (Browser)",
+    applicationSubCategory: "Arcade Game",
+    operatingSystem: "Any",
+    inLanguage: "en",
+    isAccessibleForFree: true,
+    isFamilyFriendly: true,
+    numberOfPlayers: {
+      "@type": "QuantitativeValue",
+      value: 1,
+    },
+    playMode: "SinglePlayer",
+    datePublished: "2025-06-01",
+    keywords:
+      "space game, arcade game, browser game, HTML5 game, canvas game, survival game, free online game, space miner, y1shubham",
     author: {
+      "@type": "Person",
+      name: "Shubham Yadav",
+      url: "https://y1shubham.in",
+    },
+    creator: {
       "@type": "Person",
       name: "Shubham Yadav",
       url: "https://y1shubham.in",
@@ -97,6 +115,17 @@ export function SpaceMinerJsonLd() {
       price: "0",
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
+    },
+    potentialAction: {
+      "@type": "PlayAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://space-miner.y1shubham.in",
+        actionPlatform: [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform",
+        ],
+      },
     },
   };
 

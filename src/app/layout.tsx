@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | Shubham Yadav",
   },
   description:
-    "Shubham Yadav — Software Developer at LiveLike Sports Technologies. Building scalable web applications, real-time sports engagement platforms, and interactive experiences using React.js, Next.js, Node.js, TypeScript, Redis, and PostgreSQL.",
+    "Shubham Yadav — Software Developer at LiveLike Sports Technologies. Building scalable web applications, real-time sports engagement platforms, and interactive experiences. Play Space Miner — a free browser arcade game built with HTML5 Canvas.",
   keywords: [
     "Shubham Yadav",
     "Shubham Yadav portfolio",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     siteName: "Shubham Yadav — Portfolio",
     title: "Shubham Yadav | Software Developer | Portfolio",
     description:
-      "Software Developer at LiveLike Sports Technologies. Building real-time sports platforms, scalable web apps, and interactive experiences with React.js, Next.js, Node.js, and Redis.",
+      "Software Developer at LiveLike Sports Technologies. Play Space Miner — a free browser arcade game. Building real-time sports platforms, scalable web apps, and interactive experiences.",
     images: [
       {
         url: "/opengraph-image",
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shubham Yadav | Software Developer",
     description:
-      "Software Developer at LiveLike. React.js, Next.js, Node.js, Redis. Building real-time systems and scalable web applications.",
+      "Software Developer at LiveLike. Play Space Miner — a free browser arcade game. Building real-time systems and scalable web applications.",
     images: ["/opengraph-image"],
   },
 };

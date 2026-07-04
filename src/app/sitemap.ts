@@ -37,8 +37,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: "https://space-miner.y1shubham.in",
       lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
+      changeFrequency: "monthly",
+      priority: 0.9,
     },
   ];
 }
