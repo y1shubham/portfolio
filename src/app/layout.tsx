@@ -9,29 +9,84 @@ import PageTransition from "@/components/PageTransition";
 import BackToTop from "@/components/BackToTop";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { PersonJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Shubham Yadav - Full Stack Developer",
+  metadataBase: new URL("https://y1shubham.in"),
+  title: {
+    default: "Shubham Yadav | Software Developer | Portfolio",
+    template: "%s | Shubham Yadav",
+  },
   description:
-    "Full Stack Developer building scalable web applications, real-time platforms, and interactive experiences using React.js, Next.js, Node.js, and Redis.",
+    "Shubham Yadav — Software Developer at LiveLike Sports Technologies. Building scalable web applications, real-time sports engagement platforms, and interactive experiences using React.js, Next.js, Node.js, TypeScript, Redis, and PostgreSQL.",
   keywords: [
+    "Shubham Yadav",
+    "Shubham Yadav portfolio",
+    "Shubham Yadav software developer",
+    "Shubham Yadav developer",
+    "Software Developer",
     "Full Stack Developer",
-    "React.js",
-    "Next.js",
-    "Node.js",
+    "Frontend Developer",
+    "Web Developer",
+    "React.js developer",
+    "Next.js developer",
+    "Node.js developer",
+    "TypeScript developer",
+    "LiveLike",
+    "NSUT",
+    "Gurgaon developer",
+    "India software developer",
+    "Real-time systems",
     "Redis",
-    "Portfolio",
+    "PostgreSQL",
+    "Socket.io",
+    "portfolio website",
   ],
+  authors: [{ name: "Shubham Yadav", url: "https://y1shubham.in" }],
+  creator: "Shubham Yadav",
+  publisher: "Shubham Yadav",
   icons: {
     icon: "/favicon.svg",
   },
+  alternates: {
+    canonical: "https://y1shubham.in",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: "Shubham Yadav - Full Stack Developer",
-    description:
-      "Full Stack Developer specializing in real-time systems and scalable web applications.",
     type: "website",
+    locale: "en_IN",
+    url: "https://y1shubham.in",
+    siteName: "Shubham Yadav — Portfolio",
+    title: "Shubham Yadav | Software Developer | Portfolio",
+    description:
+      "Software Developer at LiveLike Sports Technologies. Building real-time sports platforms, scalable web apps, and interactive experiences with React.js, Next.js, Node.js, and Redis.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Shubham Yadav — Software Developer Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shubham Yadav | Software Developer",
+    description:
+      "Software Developer at LiveLike. React.js, Next.js, Node.js, Redis. Building real-time systems and scalable web applications.",
+    images: ["/opengraph-image"],
   },
 };
 
@@ -53,6 +108,8 @@ export default function RootLayout({
         <BackToTop />
         <Analytics />
         <SpeedInsights />
+        <PersonJsonLd />
+        <WebSiteJsonLd />
       </body>
     </html>
   );
