@@ -33,8 +33,9 @@ export default function ProjectsPreviewSection() {
           <p className="text-text-muted text-[15px] max-w-xl mx-auto mb-14">
             Ambitious systems engineered to production quality - real-time,
             scalable, and built with modern full-stack architecture. 3 projects
-            are actively under development and 1 - Space Miner, a browser-based
-            arcade survival game - is already live.
+            are actively under development and 2 are already live - Space
+            Miner, a browser-based arcade survival game, and Apex Rush, a
+            pseudo-3D racing game.
           </p>
         </motion.div>
 

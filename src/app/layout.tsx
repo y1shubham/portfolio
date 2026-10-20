@@ -9,7 +9,12 @@ import PageTransition from "@/components/PageTransition";
 import BackToTop from "@/components/BackToTop";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { PersonJsonLd, WebSiteJsonLd, SpaceMinerJsonLd } from "@/components/JsonLd";
+import {
+  PersonJsonLd,
+  WebSiteJsonLd,
+  SpaceMinerJsonLd,
+  ApexRushJsonLd,
+} from "@/components/JsonLd";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -20,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Shubham Yadav",
   },
   description:
-    "Shubham Yadav — Software Developer at LiveLike Sports Technologies. Building scalable web applications, real-time sports engagement platforms, and interactive experiences. Play Space Miner — a free browser arcade game built with HTML5 Canvas.",
+    "Shubham Yadav — Software Developer at LiveLike Sports Technologies. Building scalable web applications, real-time sports engagement platforms, and interactive experiences. Play Space Miner and Apex Rush - free browser games built with HTML5 Canvas.",
   keywords: [
     "Shubham Yadav",
     "Shubham Yadav portfolio",
@@ -45,6 +50,10 @@ export const metadata: Metadata = {
     "portfolio website",
     "Space Miner",
     "Space Miner game",
+    "Apex Rush",
+    "Apex Rush racing game",
+    "browser racing game",
+    "Phaser game",
     "browser arcade game",
     "HTML5 Canvas game",
   ],
@@ -75,7 +84,7 @@ export const metadata: Metadata = {
     siteName: "Shubham Yadav — Portfolio",
     title: "Shubham Yadav | Software Developer | Portfolio",
     description:
-      "Software Developer at LiveLike Sports Technologies. Play Space Miner — a free browser arcade game. Building real-time sports platforms, scalable web apps, and interactive experiences.",
+      "Software Developer at LiveLike Sports Technologies. Play Space Miner and Apex Rush - free browser games. Building real-time sports platforms, scalable web apps, and interactive experiences.",
     images: [
       {
         url: "/opengraph-image",
@@ -89,7 +98,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shubham Yadav | Software Developer",
     description:
-      "Software Developer at LiveLike. Play Space Miner — a free browser arcade game. Building real-time systems and scalable web applications.",
+      "Software Developer at LiveLike. Play Space Miner and Apex Rush - free browser games. Building real-time systems and scalable web applications.",
     images: ["/opengraph-image"],
   },
 };
@@ -115,6 +124,7 @@ export default function RootLayout({
         <PersonJsonLd />
         <WebSiteJsonLd />
         <SpaceMinerJsonLd />
+        <ApexRushJsonLd />
       </body>
     </html>
   );

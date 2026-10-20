@@ -131,8 +131,24 @@ export const projects = [
     archTags: ["Game Dev", "Canvas", "Procedural"],
     color: "#F97316",
     status: "live" as const,
-    github: null,
+    github: "https://github.com/y1shubham/space-miner",
     demo: "https://space-miner.y1shubham.in",
+  },
+  {
+    name: "Apex Rush",
+    tagline: "Pseudo-3D Arcade Racing Game",
+    description:
+      "Race five AI rivals across three tracks, drift to charge nitro, and climb a six-event championship. Built with Phaser 4 and TypeScript, mobile-first with full touch controls.",
+    longDescription: [
+      "Built a pseudo-3D road renderer with curves, hills and parallax photo backdrops, plus arcade physics with automatic drifting, nitro and momentum-based collisions.",
+      "AI opponents with distinct driving styles across three difficulties, a championship with unlockable cars, versioned localStorage saves, synthesized Web Audio sound, and unit-tested game logic.",
+    ],
+    stack: ["Phaser 4", "TypeScript", "Vite", "Web Audio API"],
+    archTags: ["Game Dev", "Canvas", "Physics"],
+    color: "#06B6D4",
+    status: "live" as const,
+    github: "https://github.com/y1shubham/apex-racing",
+    demo: "https://apex-racing.y1shubham.in",
   },
   {
     name: "StreamSync",

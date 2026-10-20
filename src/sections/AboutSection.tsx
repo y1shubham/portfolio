@@ -96,7 +96,9 @@ export default function AboutSection() {
           </p>
           <p className="text-[15px] text-text-muted leading-relaxed">
             Outside of work, I shipped Space Miner - a browser-based arcade
-            game built with CreateJS - and I&apos;m actively building StreamSync,
+            game built with CreateJS - and Apex Rush - a pseudo-3D racing game
+            built with Phaser and TypeScript - and I&apos;m actively building
+            StreamSync,
             DevFlow AI, and APIFlow, all focused on real-time systems and
             scalable architecture. I graduated from NSUT Delhi with a B.Tech in
             Computer Science (2025) and served as Training &amp; Placement

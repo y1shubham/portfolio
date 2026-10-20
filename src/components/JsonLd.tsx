@@ -136,3 +136,65 @@ export function SpaceMinerJsonLd() {
     />
   );
 }
+
+export function ApexRushJsonLd() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    name: "Apex Rush",
+    alternateName: "Apex Rush - Browser Racing Game by Shubham Yadav",
+    url: "https://apex-racing.y1shubham.in",
+    description:
+      "A free browser-based pseudo-3D arcade racing game. Race five AI rivals across three tracks, drift to charge nitro, and win a six-event championship to unlock faster cars. Built with Phaser 4 and TypeScript with touch controls and synthesized sound. Play instantly in your browser - no download required.",
+    genre: ["Racing", "Arcade", "Driving", "Sports"],
+    gamePlatform: ["Web Browser", "Mobile Browser"],
+    applicationCategory: "Game",
+    applicationSubCategory: "Racing Game",
+    operatingSystem: "Any",
+    inLanguage: "en",
+    isAccessibleForFree: true,
+    isFamilyFriendly: true,
+    numberOfPlayers: {
+      "@type": "QuantitativeValue",
+      value: 1,
+    },
+    playMode: "SinglePlayer",
+    datePublished: "2026-10-20",
+    keywords:
+      "racing game, arcade racing, browser game, HTML5 game, Phaser game, drift game, free online game, apex rush, y1shubham",
+    author: {
+      "@type": "Person",
+      name: "Shubham Yadav",
+      url: "https://y1shubham.in",
+    },
+    creator: {
+      "@type": "Person",
+      name: "Shubham Yadav",
+      url: "https://y1shubham.in",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+    potentialAction: {
+      "@type": "PlayAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://apex-racing.y1shubham.in",
+        actionPlatform: [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform",
+        ],
+      },
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
